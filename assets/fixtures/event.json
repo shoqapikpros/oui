@@ -1,0 +1,15 @@
+{
+    "name": "Les Spécialistes",
+    "date": "10/05/2023",
+    "heure_start": "13:00",
+    "heure_end": "14:00",
+    "owner": "Michel Machin",
+    "location": "8 Rue Gustave Eiffel, 17140 Lagord",
+    "description": "Appréciez un bon repas en compagnie de vos délicieux collégues. Dans une ambiance pleine de convivialité, et surtout de bienveillance. Le tout organisé par votre trés cher Clément, organisateur en chef ...",
+    "participants": [
+        "Michel Scott", "Dwight Scrut", "Jim Halpert", "Pam Beesley"
+    ],
+    "user": {
+        "username": "Creed Braton"
+    }
+}
