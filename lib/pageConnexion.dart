@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:app_boulot_oui/RDS/connexion.dart';
 
 class PageConnexion extends StatelessWidget {
   const PageConnexion({Key? key}) : super(key: key);
@@ -6,7 +7,7 @@ class PageConnexion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget titre = Container(
-      margin: EdgeInsets.symmetric(horizontal: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 10),
       child: const Text(
         "Macompta Events",
         style: TextStyle(
@@ -21,53 +22,69 @@ class PageConnexion extends StatelessWidget {
     );
 
     Widget sousTitre = Container(
-      margin: EdgeInsets.symmetric(horizontal: 10),
+        margin: const EdgeInsets.symmetric(horizontal: 10),
         child: const Text(
-        "Connexion",
-        style: TextStyle(
-          fontFamily: "Roboto",
-          fontSize: 18,
-          fontWeight: FontWeight.w400,
-          color: Color(0xff110c26),
-          height: 55 / 18,
-        ),
-        textAlign: TextAlign.left,
-    ));
+          "Connexion",
+          style: TextStyle(
+            fontFamily: "Roboto",
+            fontSize: 18,
+            fontWeight: FontWeight.w400,
+            color: Color(0xff110c26),
+            height: 55 / 18,
+          ),
+          textAlign: TextAlign.left,
+        ));
 
     Widget emailTextField = Container(
       padding: const EdgeInsets.all(20),
-      child: const TextField(
-            decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              hintText: 'Entrer votre email',
-            ),
-          ),
+      child: TextField(
+        decoration: InputDecoration(
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+          hintText: 'Entrer votre email',
+        ),
+      ),
     );
+
+    Widget buttonConnexion = Container(
+        child: ElevatedButton(
+      style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(Color(0xff2A9D8F))),
+      child: const Text('Connexion'),
+      onPressed: () {
+        getHttp();
+      },
+    ));
 
     Widget mdpTextField = Container(
       padding: const EdgeInsets.all(20),
       child: TextField(
-            obscureText: true,
-            enableSuggestions: false,
-            autocorrect: false,
-            decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              hintText: 'Entrer votre mot de passe',
-            ),
+        obscureText: true,
+        enableSuggestions: false,
+        autocorrect: false,
+        decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
           ),
+          hintText: 'Entrer votre mot de passe',
+        ),
+      ),
     );
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
           appBar: AppBar(
-            backgroundColor: Color(0xff2A9D8F),
+            backgroundColor: const Color(0xff2A9D8F),
             toolbarHeight: 20,
           ), // AppBar
           body: ListView(
-            children: [titre, sousTitre, emailTextField, mdpTextField],
+            children: [
+              titre,
+              sousTitre,
+              emailTextField,
+              mdpTextField,
+              buttonConnexion
+            ],
           ) // Container
           ), // Scaffold
     );
