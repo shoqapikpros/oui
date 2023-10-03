@@ -46,14 +46,27 @@ class PageConnexion extends StatelessWidget {
     );
 
     Widget buttonConnexion = Container(
-        child: ElevatedButton(
-      style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(Color(0xff2A9D8F))),
-      child: const Text('Connexion'),
-      onPressed: () {
-        getHttp();
-      },
-    ));
+      height: 100,
+      child: FractionallySizedBox(
+          widthFactor: 0.6,
+          heightFactor: 0.6,
+          child: ElevatedButton(
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Color(0xff2A9D8F)),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                )),
+            child: const Text(
+              'CONNEXION',
+              style: TextStyle(fontSize: 20),
+            ),
+            onPressed: () {
+              getHttp();
+            },
+          )),
+    );
 
     Widget mdpTextField = Container(
       padding: const EdgeInsets.all(20),
@@ -73,9 +86,15 @@ class PageConnexion extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-          appBar: AppBar(
-            backgroundColor: const Color(0xff2A9D8F),
-            toolbarHeight: 20,
+          appBar: PreferredSize(
+            preferredSize: const Size.fromHeight(5.0),
+            child: AppBar(
+              backgroundColor: const Color(0xff2A9D8F),
+              toolbarHeight: 20,
+              shape: const RoundedRectangleBorder(
+                  borderRadius:
+                      BorderRadius.vertical(bottom: Radius.circular(40))),
+            ),
           ), // AppBar
           body: ListView(
             children: [
